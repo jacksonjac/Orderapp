@@ -1,0 +1,49 @@
+<div class=" flex items-center justify-center   ">
+  <div class="p-4 rounded-lg animation w-full max-w-sm sm:max-w-md shadow-2xl  h-[400px] bg-blue-950">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="space-y-2">
+      <!-- Shop Name -->
+      <div>
+        <label for="productName" class="block text-gray-200 font-semibold mb-1">
+          Product Name <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="productName" type="text" id="productName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Product Name">
+        <div *ngIf="isInvalid('productName')" class="text-red-500 text-sm">Product name is required</div>
+      </div>
+      <div>
+        <label for="brand" class="block text-gray-200 font-semibold mb-1">
+          Brand  <span class="text-gray-300">(optional)</span>
+        </label>
+        <input formControlName="brand" type="text" id="brand" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Brand Name">
+        <div *ngIf="isInvalid('brand')" class="text-red-500 text-sm">Product name is required</div>
+      </div>
+      <!-- Owner Name -->
+      <div>
+        <label for="quantity" class="block text-gray-200 font-semibold mb-1">
+          Quantity<span class="text-red-500">*</span>
+        </label>
+        <input formControlName="quantity" type="number" id="quantity" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Product quantity">
+        <div *ngIf="isInvalid('quantity')" class="text-red-500 text-sm">quantity is required </div>
+      </div>
+
+      <!-- Member ID -->
+      <div>
+        <label for="price" class="block text-gray-200 font-semibold mb-1">
+          Price <span class="text-red-500">*</span>
+        </label>
+        <input formControlName="price" type="number" id="price" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Product Price">
+        <div *ngIf="isInvalid('price')" class="text-red-500 text-sm">Price is required.</div>
+      </div>
+
+     
+     
+
+    
+  
+
+      <!-- Submit Button -->
+      <div>
+        <button type="submit" class="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

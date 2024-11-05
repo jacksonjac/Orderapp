@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Order App</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+  <app-root></app-root>
+</body>
+<script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.8/firebase-auth.js"></script>
+
+<script>
+  // Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCrLAAjuvIM_CWUoC6bmNqIt8B090iANMQ",
+    authDomain: "fir-2328d.firebaseapp.com",
+    projectId: "fir-2328d",
+    storageBucket: "fir-2328d.appspot.com",
+    messagingSenderId: "364204743253",
+    appId: "1:364204743253:web:e4ba88d76c8750da0f52dc",
+    measurementId: "G-GL8R0QXNBE"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+</script>
+</html>
