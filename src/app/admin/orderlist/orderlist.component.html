@@ -1,0 +1,46 @@
+<div class="flex items-center justify-center mt-8">
+    <div class="p-4 rounded-lg animation shadow-2xl w-full max-w-sm sm:max-w-md bg-violet-950 text-white">
+      <h2 class="text-lg font-semibold text-center mb-4">REQUEST ORDERS</h2>
+  
+      <div class="h-64 overflow-y-auto">
+        <div *ngFor="let order of orders" class="p-2 mb-3 rounded-lg shadow-2xl bg-violet-900 flex items-center justify-between">
+          
+          <!-- Order details on the left -->
+          <div>
+            <h3 class="text-md font-semibold">{{ order.productName | uppercase }}</h3>
+            <p class="text-[0.55rem]">Brand: {{ order.brand }}</p>
+            <p class="text-[0.55rem]">Quantity: {{ order.quantity }}</p>
+            <p class="text-[0.55rem]">Price: {{ order.price }} rs per item</p>
+          </div>
+  
+          <!-- Change Status and View Status button on the right side -->
+          <div class="flex flex-col items-center space-y-1">
+            <!-- Label for the dropdown -->
+           
+            
+            <!-- Dropdown and View Status button on the same line -->
+            <div class="flex items-center space-x-2">
+              <select 
+                [(ngModel)]="order.status" 
+                (change)="updateOrderStatus(order.id, order.status)" 
+                class="bg-red-800 text-white p-1 rounded text-xs w-24"
+              >
+                <option value="" selected>Status</option>
+                <option value="Confirmed">Confirmed</option>
+                <option value="Shipped">Shipped</option>
+                <option value="Delivered">Delivered</option>
+              </select>
+  
+              <button 
+                (click)="viewStatus(order.id)" 
+                class="px-2 py-1 bg-green-500 rounded text-xs font-semibold hover:bg-blue-600 w-24"
+              >
+                View Status
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

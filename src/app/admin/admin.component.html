@@ -1,31 +1,7 @@
-<div class="min-h-screen flex">
-    <!-- Fixed Sidebar -->
-    <div class="w-64 bg-gray-800 text-white p-6 fixed h-full">
-      <h2 class="text-2xl font-semibold mb-6">Admin Panel</h2>
-      <ul class="space-y-4">
-        <li>
-            <a  routerLinkActive="font-bold" class="block p-2 rounded hover:bg-gray-700">
-              Dashboard
-            </a>
-          </li>
-        <li>
-          <a routerLink="/admin/shop-details" routerLinkActive="font-bold" class="block p-2 rounded hover:bg-gray-700">
-            Shop Details
-          </a>
-        </li>
-        <li>
-          <a routerLink="/admin/products-list" routerLinkActive="font-bold" class="block p-2 rounded hover:bg-gray-700">
-            Products List
-          </a>
-        </li>
-        <!-- Add more sidebar links as needed -->
-      </ul>
-    </div>
-  
-    <!-- Main content area -->
-    <div class="flex-1 ml-60 mt-10 p-6">
+
+    <div class="m-10 p-4">
       <!-- Add padding-left to avoid content under the fixed sidebar -->
       <router-outlet></router-outlet>
     </div>
-  </div>
+
   

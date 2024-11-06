@@ -6,20 +6,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './admin.component';
 import {SearchFilterPipe} from '../pipe/search-filter.pipe'
 import { AdminRoutingModule } from './admin-routing.module';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
-import { ProductlistComponent } from './productlist/productlist.component';
-import { ShopslistComponent } from './shopslist/shopslist.component';
+import { OrderlistComponent } from './orderlist/orderlist.component';
+import { OrderstatusComponent } from './orderstatus/orderstatus.component';
+
+
 
 
 @NgModule({
   declarations: [
-    AdminDashboardComponent,
+    
     
     AdminComponent,
-         ProductlistComponent,
-         ShopslistComponent,
-         SearchFilterPipe
+        
+        
+         SearchFilterPipe,
+         OrderlistComponent,
+         OrderstatusComponent
          
   ],
   imports: [
