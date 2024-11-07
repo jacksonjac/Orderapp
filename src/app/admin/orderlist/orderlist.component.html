@@ -1,12 +1,13 @@
 <div class="flex items-center justify-center mt-8 px-2">
-  <div class="p-4 rounded-lg shadow-2xl w-full max-w-full sm:max-w-md bg-violet-950 text-white">
+  <!-- Full width on mobile, adjusted max width on larger screens -->
+  <div class="p-6 rounded-lg shadow-2xl w-full sm:w-[90%] md:w-[70%] lg:w-[60%] bg-violet-950 text-white">
     <h2 class="text-lg font-semibold text-center mb-4">REQUEST ORDERS</h2>
 
-    <div class="h-64 overflow-y-auto">
+    <div class="h-64 overflow-y-auto w-full">
       <div 
         *ngFor="let order of orders" 
         (click)="viewStatus(order.id)" 
-        class="p-2 mb-3 rounded-lg shadow-lg bg-violet-900 flex items-center justify-between cursor-pointer"
+        class="p-3 mb-3 rounded-lg shadow-lg bg-violet-900 flex items-center justify-between cursor-pointer w-full"
       >
         
         <!-- Order details on the left -->
