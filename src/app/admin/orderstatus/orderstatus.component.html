@@ -1,1 +1,71 @@
-<p>orderstatus works!</p>
+<div class="flex items-center justify-center mt-8">
+    <div class="p-4 rounded-lg shadow-2xl w-full max-w-sm sm:max-w-md h-[500px] bg-violet-950 text-white">
+      <div class="mb-4">
+        <h2 class="text-lg font-semibold text-center">Order Status</h2>
+  
+        <!-- Displaying the Order Details if orderData is available -->
+        <div *ngIf="orderData" class="text-xs mt-2 text-gray-300">
+          <div><strong>Product Name:</strong> {{ orderData.productName }}</div>
+          <div><strong>Brand:</strong> {{ orderData.brand }}</div>
+          <div><strong>Quantity:</strong> {{ orderData.quantity }}</div>
+          <div><strong>Price:</strong> ${{ orderData.price }} per item</div>
+          <div *ngIf="orderData.statusDetails">
+            <div><strong>Status:</strong> {{ orderData.statusDetails }}</div>
+          </div>
+        </div>
+  
+        <!-- Step 1: Waiting for Approval -->
+        <div class="relative flex flex-col items-center mt-4 space-y-2">
+          <div class="flex flex-col items-center">
+            <div
+              class="w-6 h-6 rounded-full"
+              [class.bg-orange-500]="status >= 1"
+              [class.bg-gray-400]="status < 1"
+            ></div>
+            <span class="text-xs mt-2">Waiting for Approval</span>
+            <div *ngIf="status === 1" class="text-[0.55rem] mt-1 text-gray-300">
+              <p><strong>Product Name:</strong> {{ orderData.productName }}</p>
+              <p><strong>Quantity:</strong> {{ orderData.quantity }}</p>
+              <p><strong>Price:</strong> ${{ orderData.price }} per item</p>
+            </div>
+          </div>
+  
+          <div class="h-6 border-l border-gray-400"></div>
+  
+          <!-- Step 2: Confirmed -->
+          <div class="flex flex-col items-center">
+            <div
+              class="w-6 h-6 rounded-full"
+              [class.bg-blue-500]="status >= 2"
+              [class.bg-gray-400]="status < 2"
+            ></div>
+            <span class="text-xs mt-2">Confirmed</span>
+            <div *ngIf="status === 2" class="text-[0.75rem] mt-1 text-gray-300">
+              <p>Order has been confirmed</p>
+            </div>
+          </div>
+  
+          <div class="h-8 border-l border-gray-400"></div>
+  
+          <!-- Step 3: Shipped -->
+          <div class="flex flex-col items-center">
+            <div
+              class="w-6 h-6 rounded-full"
+              [class.bg-yellow-500]="status >= 3"
+              [class.bg-gray-400]="status < 3"
+            ></div>
+            <span class="text-xs mt-2">Shipped</span>
+            <div *ngIf="status === 3" class="text-[0.75rem] mt-1 text-gray-300">
+              <p><strong>Shipped Quantity:</strong> {{ orderData.shippedQuantity }}</p>
+              <p><strong>Shipping Date:</strong> {{ orderData.orderDate | date:'mediumDate' }}</p>
+            </div>
+          </div>
+  
+          <!-- Step 4: Delivered -->
+          <!-- Add similar block for "Delivered" status if needed -->
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  

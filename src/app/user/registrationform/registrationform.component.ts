@@ -34,7 +34,7 @@ export class RegistrationformComponent implements OnInit {
       quantity: ['', [Validators.required, Validators.pattern(/^[0-9]*$/)]],
       price: ['', [Validators.required, Validators.min(0)]],
       shippedQuantity: [0, [Validators.required, Validators.min(0)]], // New field with a default value
-      statusDetails: ['pending - Delivery: Not Yet Shipped', []], // New consolidated field with default status
+      statusDetails: ['pending', []], // New consolidated field with default status
       orderDate: [new Date().toISOString().split('T')[0], []], // Set current date in YYYY-MM-DD format
     });
   }

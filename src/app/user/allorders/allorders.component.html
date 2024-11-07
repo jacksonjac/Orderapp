@@ -1,22 +1,26 @@
 <div class="flex items-center justify-center mt-8">
-    <div class="p-4 rounded-lg animation shadow-2xl w-full max-w-sm sm:max-w-md bg-violet-950 text-white">
-      <h2 class="text-lg font-semibold text-center mb-4">ALL ORDERS</h2>
-  
-      <!-- Scrollable order list container with limited height -->
-      <div class="h-64 overflow-y-auto">
-        <!-- Loop through each order -->
-        <div *ngFor="let order of orders" class="p-2 mb-3 rounded-lg shadow-2xl bg-violet-900 flex justify-between items-center">
-          <div>
-            <h3 class="text-md font-semibold">{{ order.productName | uppercase}}</h3>
-            <p class="text-[0.55rem]">Brand: {{ order.brand }}</p>
-            <p class="text-[0.55rem]">Quantity: {{ order.quantity }}</p>
-            <p class="text-[0.55rem]">Price: {{ order.price }}rs per item</p>
-          </div>
-          <button  (click)="viewStatus(order.id)" class="ml-2 px-2 py-1 bg-violet-950 rounded text-xs font-semibold hover:bg-blue-600">
-            View Status
-          </button>
+  <div class="p-4 rounded-lg animation shadow-2xl w-full max-w-sm sm:max-w-md bg-violet-950 text-white">
+    <h2 class="text-lg font-semibold text-center mb-4">ALL ORDERS</h2>
+
+    <!-- Check if there are orders; if not, display "No Orders" -->
+    <div *ngIf="orders.length === 0" class="text-center text-gray-500">
+      <p>No Orders Available</p>
+    </div>
+
+    <!-- Scrollable order list container with limited height -->
+    <div *ngIf="orders.length > 0" class="h-64 overflow-y-auto">
+      <!-- Loop through each order -->
+      <div *ngFor="let order of orders" class="p-2 mb-3 rounded-lg shadow-2xl bg-violet-900 flex justify-between items-center">
+        <div>
+          <h3 class="text-md font-semibold">{{ order.productName | uppercase }}</h3>
+          <p class="text-[0.55rem]">Brand: {{ order.brand }}</p>
+          <p class="text-[0.55rem]">Quantity: {{ order.quantity }}</p>
+          <p class="text-[0.55rem]">Price: {{ order.price }}rs per item</p>
         </div>
+        <button (click)="viewStatus(order.id)" class="ml-2 px-2 py-1 bg-violet-950 rounded text-xs font-semibold hover:bg-blue-600">
+          View Status
+        </button>
       </div>
     </div>
   </div>
-  
+</div>
