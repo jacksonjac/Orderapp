@@ -4,7 +4,7 @@
       <div class="text-white text-lg font-bold flex items-center">
         <a routerLink="/">
             <img 
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWQXMlMJBC0QvldzQlFc0Oo6D5zjQOnpmqzg&s" 
+                src="/assets/images/logo.jpeg" 
                 alt="MyLogo" 
                 class="h-10 w-auto mr-2" /> <!-- Adjust height and margin as needed -->
         </a>
@@ -30,10 +30,10 @@
   
     <!-- Mobile Menu (Dropdown) -->
     <div *ngIf="isMenuOpen" class="absolute bg-blue-600 left-0 right-0 mt-2 space-y-2 z-50">
-      <a routerLink="admin/AllOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">All Orders</a>
+      <a routerLink="AllOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">All Orders</a>
   
-      <a routerLink="admin/ConfirmedOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Confirmed Orders</a>
-      <a routerLink="admin/ShippedOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Shipped Orders</a>
+      <a routerLink="ConfirmedOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Confirmed Orders</a>
+      <a routerLink="ShippedOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Shipped Orders</a>
     </div>
   </nav>
   
