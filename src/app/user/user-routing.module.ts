@@ -8,6 +8,8 @@ import { RegistrationformComponent } from './registrationform/registrationform.c
 
 import { ProductstatusComponent } from './productstatus/productstatus.component';
 import { AllordersComponent } from './allorders/allorders.component';
+import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.component';
+import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
 
 
 const routes: Routes = [
@@ -15,7 +17,10 @@ const routes: Routes = [
     children:[
         {path:'',component:RegistrationformComponent},
         {path:'AllOrders',component:AllordersComponent},
-        {path:'productStatus/:id',component:ProductstatusComponent}
+        {path:'productStatus/:id',component:ProductstatusComponent},
+        {path:'AllOrders',component:AllordersComponent},
+        {path:'ConfirmedOrders',component:ConfirmedOrdersComponent},
+        {path:'ShippedOrders',component:ShippedOrdersComponent}
         
   
 

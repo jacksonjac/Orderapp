@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Firestore, collection, getDocs, updateDoc, doc, CollectionReference } from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-orderlist',
-  templateUrl: './orderlist.component.html',
-  styleUrls: ['./orderlist.component.css']
+  selector: 'app-all-orders',
+  templateUrl: './all-orders.component.html',
+  styleUrls: ['./all-orders.component.css']
 })
-export class OrderlistComponent implements OnInit {
-
+export class AllOrdersComponent implements OnInit {
   orders: any[] = [];  // Array to store order data
 
   constructor(private router: Router, private firestore: Firestore) {}
 
   ngOnInit() {
    
-    this.fetchOrderPendingItems()
+    this.fetchOrderItems()
   }
 
   // Fetch orders from Firestore
@@ -33,23 +32,23 @@ export class OrderlistComponent implements OnInit {
     }
   }
 
-  async fetchOrderPendingItems() {
-    try {
-      const orderItemsCollection: CollectionReference = collection(this.firestore, 'Orderitems');
-      const snapshot = await getDocs(orderItemsCollection);
+  // async fetchOrderPendingItems() {
+  //   try {
+  //     const orderItemsCollection: CollectionReference = collection(this.firestore, 'Orderitems');
+  //     const snapshot = await getDocs(orderItemsCollection);
   
-      this.orders = snapshot.docs
-        .map(doc => ({
-          id: doc.id,
-          ...doc.data(),
-        } as Order)) // Type cast to Order
-        .filter(order => order.status === 'Pending'); // Only keep pending orders
-    } catch (error) {
-      console.error("Error fetching documents: ", error);
-    }
+  //     this.orders = snapshot.docs
+  //       .map(doc => ({
+  //         id: doc.id,
+  //         ...doc.data(),
+  //       } as Order)) // Type cast to Order
+  //       .filter(order => order.status === 'Pending'); // Only keep pending orders
+  //   } catch (error) {
+  //     console.error("Error fetching documents: ", error);
+  //   }
 
-    console.log("pending data",this.orders)
-  }
+  //   console.log("pending data",this.orders)
+  // }
   
   
 
@@ -145,3 +144,6 @@ interface Order {
   shippedQuantity?: number;
   shippedDate?: string;
 }
+
+
+

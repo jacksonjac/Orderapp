@@ -9,6 +9,10 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { ToastrModule } from 'ngx-toastr';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { OrderstatusComponent } from './orderstatus/orderstatus.component';
+import { AllOrdersComponent } from './all-orders/all-orders.component';
+import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.component';
+import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
+import { NavbarComponent } from '../admin/shared/navbar/navbar.component';
 
 
 
@@ -22,7 +26,11 @@ import { OrderstatusComponent } from './orderstatus/orderstatus.component';
         
          SearchFilterPipe,
          OrderlistComponent,
-         OrderstatusComponent
+         OrderstatusComponent,
+         AllOrdersComponent,
+         ConfirmedOrdersComponent,
+         ShippedOrdersComponent,
+         NavbarComponent
          
   ],
   imports: [

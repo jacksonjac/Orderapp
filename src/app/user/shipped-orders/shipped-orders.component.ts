@@ -1,39 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Firestore, collection, getDocs, updateDoc, doc, CollectionReference } from '@angular/fire/firestore';
 
-@Component({
-  selector: 'app-orderlist',
-  templateUrl: './orderlist.component.html',
-  styleUrls: ['./orderlist.component.css']
-})
-export class OrderlistComponent implements OnInit {
 
+@Component({
+  selector: 'app-shipped-orders',
+  templateUrl: './shipped-orders.component.html',
+  styleUrls: ['./shipped-orders.component.css']
+})
+export class ShippedOrdersComponent implements OnInit {
   orders: any[] = [];  // Array to store order data
 
   constructor(private router: Router, private firestore: Firestore) {}
 
   ngOnInit() {
    
-    this.fetchOrderPendingItems()
+    this.fetchOrderConfirmedItems()
   }
 
   // Fetch orders from Firestore
-  async fetchOrderItems() {
-    try {
-      const orderItemsCollection: CollectionReference = collection(this.firestore, 'Orderitems');
-      const snapshot = await getDocs(orderItemsCollection);
 
-      this.orders = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-    } catch (error) {
-      console.error("Error fetching documents: ", error);
-    }
-  }
 
-  async fetchOrderPendingItems() {
+  async fetchOrderConfirmedItems() {
     try {
       const orderItemsCollection: CollectionReference = collection(this.firestore, 'Orderitems');
       const snapshot = await getDocs(orderItemsCollection);
@@ -43,7 +31,7 @@ export class OrderlistComponent implements OnInit {
           id: doc.id,
           ...doc.data(),
         } as Order)) // Type cast to Order
-        .filter(order => order.status === 'Pending'); // Only keep pending orders
+        .filter(order => order.status === 'Shipped'); // Only keep pending orders
     } catch (error) {
       console.error("Error fetching documents: ", error);
     }
@@ -145,3 +133,5 @@ interface Order {
   shippedQuantity?: number;
   shippedDate?: string;
 }
+
+

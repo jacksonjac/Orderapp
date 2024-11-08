@@ -1,0 +1,40 @@
+<nav class="bg-blue-900 p-4 fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <div class="text-white text-lg font-bold flex items-center">
+        <a routerLink="/">
+            <img 
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWQXMlMJBC0QvldzQlFc0Oo6D5zjQOnpmqzg&s" 
+                alt="MyLogo" 
+                class="h-10 w-auto mr-2" /> <!-- Adjust height and margin as needed -->
+        </a>
+        <span>Brandffic</span> <!-- You can keep this text if desired, or remove it -->
+    </div>
+      <!-- Menu Items (Desktop) -->
+      <div class="hidden md:flex space-x-6">
+        <a routerLink="/" class="text-white hover:text-blue-300"></a>
+        <a routerLink="/about" class="text-white hover:text-blue-300"></a>
+        <a routerLink="/services" class="text-white hover:text-blue-300"></a>
+        <a routerLink="/contact" class="text-white hover:text-blue-300"></a>
+      </div>
+  
+      <!-- Hamburger Menu (Mobile) -->
+      <div class="md:hidden">
+        <button (click)="toggleMenu()" class="text-white focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  
+    <!-- Mobile Menu (Dropdown) -->
+    <div *ngIf="isMenuOpen" class="absolute bg-blue-600 left-0 right-0 mt-2 space-y-2 z-50">
+      <a routerLink="admin/AllOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">All Orders</a>
+  
+      <a routerLink="admin/ConfirmedOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Confirmed Orders</a>
+      <a routerLink="admin/ShippedOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Shipped Orders</a>
+    </div>
+  </nav>
+  
+  

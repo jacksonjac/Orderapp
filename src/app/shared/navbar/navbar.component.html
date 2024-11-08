@@ -30,10 +30,10 @@
 
   <!-- Mobile Menu (Dropdown) -->
   <div *ngIf="isMenuOpen" class="absolute bg-blue-600 left-0 right-0 mt-2 space-y-2 z-50">
-    <a routerLink="/" class="block text-white bg-blue-700 px-3 py-2 rounded-md">All orders</a>
-    <a routerLink="/about" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Cansel orders</a>
-    <a routerLink="/services" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Deliverd orders</a>
-    <a routerLink="/contact" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Shipped orders</a>
+    <a routerLink="admin/AllOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">All Orders</a>
+
+    <a routerLink="admin/ConfirmedOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Confirmed Orders</a>
+    <a routerLink="admin/ShippedOrders" class="block text-white bg-blue-700 px-3 py-2 rounded-md">Shipped Orders</a>
   </div>
 </nav>
 

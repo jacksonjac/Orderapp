@@ -9,6 +9,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { RegistrationformComponent } from './registrationform/registrationform.component';
 import { ProductstatusComponent } from './productstatus/productstatus.component';
 import { AllordersComponent } from './allorders/allorders.component';
+import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
+import { AllOrdersComponent } from './all-orders/all-orders.component';
+import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.component';
+import { NavbarComponent } from '../user/shared/navbar/navbar.component';
 
 
 
@@ -19,6 +23,10 @@ import { AllordersComponent } from './allorders/allorders.component';
         RegistrationformComponent,
         ProductstatusComponent,
         AllordersComponent,
+        ShippedOrdersComponent,
+        AllOrdersComponent,
+        ConfirmedOrdersComponent,
+        NavbarComponent,
     
  
   ],
