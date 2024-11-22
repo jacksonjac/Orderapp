@@ -10,12 +10,14 @@ import { ProductstatusComponent } from './productstatus/productstatus.component'
 import { AllordersComponent } from './allorders/allorders.component';
 import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.component';
 import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
 
 
 const routes: Routes = [
   { path: '', component: UserComponent,
     children:[
-        {path:'',component:RegistrationformComponent},
+        {path:'',component:LoginpageComponent},
+        {path:'Registration',component:RegistrationformComponent},
         {path:'AllOrders',component:AllordersComponent},
         {path:'productStatus/:id',component:ProductstatusComponent},
         {path:'AllOrders',component:AllordersComponent},

@@ -8,7 +8,7 @@
       </div>
   
       <!-- Display orders if available -->
-      <div *ngIf="orders.length > 0" class="h-64 overflow-y-auto">
+      <div *ngIf="orders.length > 0" class="h-full overflow-y-auto">
         <div 
           *ngFor="let order of orders" 
           (click)="viewStatus(order.id)" 

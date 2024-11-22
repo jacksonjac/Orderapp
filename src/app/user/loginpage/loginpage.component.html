@@ -1,0 +1,68 @@
+<div class="flex items-center justify-center">
+    <div class="p-4 rounded-lg w-full max-w-sm sm:max-w-md shadow-2xl mt-14 bg-blue-950">
+      <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+        <!-- Login Heading -->
+        <div class="flex items-center justify-center space-x-2">
+          <!-- Icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            class="w-8 h-8 text-blue-300"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"
+            />
+            <path d="M10 10h4v2h-4zm0 4h4v2h-4z" />
+          </svg>
+          <!-- Text -->
+          <h1 class="text-2xl font-bold text-blue-300">Login</h1>
+        </div>
+  
+        <!-- Username -->
+        <div>
+          <label for="username" class="block text-gray-200 font-semibold mb-1">
+            Username <span class="text-red-500">*</span>
+          </label>
+          <input
+            formControlName="username"
+            type="text"
+            id="username"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter Username"
+          />
+          <div *ngIf="isInvalid('username')" class="text-red-500 text-sm">
+            Username is required
+          </div>
+        </div>
+  
+        <!-- Password -->
+        <div>
+          <label for="password" class="block text-gray-200 font-semibold mb-1">
+            Password <span class="text-red-500">*</span>
+          </label>
+          <input
+            formControlName="password"
+            type="password"
+            id="password"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Enter Password"
+          />
+          <div *ngIf="isInvalid('password')" class="text-red-500 text-sm">
+            Password is required
+          </div>
+        </div>
+  
+        <!-- Submit Button -->
+        <div>
+          <button
+            type="submit"
+            class="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

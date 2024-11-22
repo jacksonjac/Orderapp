@@ -13,6 +13,7 @@ import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.component';
 import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
 import { NavbarComponent } from '../admin/shared/navbar/navbar.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
 
 
 
@@ -30,7 +31,8 @@ import { NavbarComponent } from '../admin/shared/navbar/navbar.component';
          AllOrdersComponent,
          ConfirmedOrdersComponent,
          ShippedOrdersComponent,
-         NavbarComponent
+         NavbarComponent,
+         LoginpageComponent
          
   ],
   imports: [

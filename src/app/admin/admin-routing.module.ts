@@ -9,13 +9,15 @@ import { OrderstatusComponent } from './orderstatus/orderstatus.component';
 import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.component';
 import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
+import { LoginpageComponent } from './loginpage/loginpage.component';
 
 
 
 const routes: Routes = [
   { path: '', component: AdminComponent,
     children: [
-     {path:'',component:OrderlistComponent},
+     {path:'',component:LoginpageComponent},
+     
      {path:'productStatus/:id',component:OrderstatusComponent},
      {path:'AllOrders',component:AllOrdersComponent},
      {path:'ConfirmedOrders',component:ConfirmedOrdersComponent},
