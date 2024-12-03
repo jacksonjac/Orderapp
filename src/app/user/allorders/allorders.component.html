@@ -11,12 +11,23 @@
     <div *ngIf="orders.length > 0" class="h-64 overflow-y-auto">
       <!-- Loop through each order -->
       <div *ngFor="let order of orders" class="p-2 mb-3 rounded-lg shadow-2xl bg-violet-900 flex justify-between items-center">
+        
+        <!-- Order Image -->
+        <img 
+          [src]="order.image || 'https://www.ishtaorganics.in/cdn/shop/files/Fireflycoconutoilin2bottlesonein500mlanotherin1lwithacoconutinsideandwhiebackgrou.jpg?v=1712694482'" 
+          alt="{{ order.productName }}" 
+          class="w-16 h-16 rounded-md mr-3 object-cover"
+        />
+
+        <!-- Order Details -->
         <div>
           <h3 class="text-md font-semibold">{{ order.productName | uppercase }}</h3>
           <p class="text-[0.55rem]">Brand: {{ order.brand }}</p>
           <p class="text-[0.55rem]">Quantity: {{ order.quantity }}</p>
           <p class="text-[0.55rem]">Price: {{ order.price }}rs per item</p>
         </div>
+
+        <!-- View Status Button -->
         <button (click)="viewStatus(order.id)" class="ml-2 px-2 py-1 bg-violet-950 rounded text-xs font-semibold hover:bg-blue-600">
           View Status
         </button>

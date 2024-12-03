@@ -23,7 +23,7 @@ export class AllordersComponent implements OnInit {
 
   async fetchOrderItems() {
     try {
-      const orderItemsCollection: CollectionReference = collection(this.firestore, 'Orderitems');
+      const orderItemsCollection: CollectionReference = collection(this.firestore, 'Orders');
       const snapshot = await getDocs(orderItemsCollection);
 
       this.orders = snapshot.docs.map(doc => ({

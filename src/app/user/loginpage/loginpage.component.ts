@@ -35,7 +35,7 @@ export class LoginpageComponent {
 
       if (isValidUser) {
         console.log('Login successful');
-        this.router.navigateByUrl('user/Registration'); // Navigate to the "" route
+        this.router.navigateByUrl('user/Productlist'); // Navigate to the "" route
       } else {
         console.error('Invalid username or password');
         alert('Invalid username or password');

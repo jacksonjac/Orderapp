@@ -10,6 +10,7 @@ import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.component';
 import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
 
 
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: '', component: AdminComponent,
     children: [
      {path:'',component:LoginpageComponent},
+     {path:'addproduct',component:AddproductComponent},
      
      {path:'productStatus/:id',component:OrderstatusComponent},
      {path:'AllOrders',component:AllOrdersComponent},

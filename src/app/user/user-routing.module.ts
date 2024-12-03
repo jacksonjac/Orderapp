@@ -11,12 +11,18 @@ import { AllordersComponent } from './allorders/allorders.component';
 import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.component';
 import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
+import { ProductlistsComponent } from './productlists/productlists.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { SucesspageComponent } from './sucesspage/sucesspage.component';
 
 
 const routes: Routes = [
   { path: '', component: UserComponent,
     children:[
         {path:'',component:LoginpageComponent},
+        {path:'Productlist',component:ProductlistsComponent},
+        {path: 'productDetails/:id', component: ProductdetailsComponent },
+        {path:'sucesspage',component:SucesspageComponent},
         {path:'Registration',component:RegistrationformComponent},
         {path:'AllOrders',component:AllordersComponent},
         {path:'productStatus/:id',component:ProductstatusComponent},

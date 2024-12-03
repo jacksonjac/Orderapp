@@ -14,6 +14,9 @@ import { AllOrdersComponent } from './all-orders/all-orders.component';
 import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.component';
 import { NavbarComponent } from '../user/shared/navbar/navbar.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
+import { ProductlistsComponent } from './productlists/productlists.component';
+import { ProductdetailsComponent } from './productdetails/productdetails.component';
+import { SucesspageComponent } from './sucesspage/sucesspage.component';
 
 
 
@@ -29,6 +32,9 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
         ConfirmedOrdersComponent,
         NavbarComponent,
         LoginpageComponent,
+        ProductlistsComponent,
+        ProductdetailsComponent,
+        SucesspageComponent,
     
  
   ],
