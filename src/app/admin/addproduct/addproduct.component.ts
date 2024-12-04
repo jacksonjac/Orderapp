@@ -31,18 +31,25 @@ export class AddproductComponent {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
       this.selectedImage = input.files[0];
-
-      // Validate image file size or type if needed
+  
+      // Validate image file size
       if (this.selectedImage.size > 5 * 1024 * 1024) { // 5MB limit
         this.imageError = 'File size exceeds 5MB.';
         return;
       }
-
-      this.imageError = null; // Clear previous errors
+  
+      // Validate image file type
+      const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+      if (!allowedTypes.includes(this.selectedImage.type)) {
+        this.imageError = 'Invalid file type. Only JPG and PNG are allowed.';
+        return;
+      }
+  
+      this.imageError = null; // Clear any previous errors
       await this.uploadImageToCloudinary(this.selectedImage);
     }
   }
-
+  
   async uploadImageToCloudinary(file: File) {
     const formData = new FormData();
     formData.append('file', file);

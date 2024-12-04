@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
-import { RegistrationformComponent } from './registrationform/registrationform.component';
 import { ProductstatusComponent } from './productstatus/productstatus.component';
 import { AllordersComponent } from './allorders/allorders.component';
 import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
@@ -24,7 +23,6 @@ import { SucesspageComponent } from './sucesspage/sucesspage.component';
   declarations: [
    
     UserComponent,
-        RegistrationformComponent,
         ProductstatusComponent,
         AllordersComponent,
         ShippedOrdersComponent,

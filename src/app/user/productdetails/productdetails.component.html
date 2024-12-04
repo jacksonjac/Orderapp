@@ -3,8 +3,12 @@
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                    <img class="w-full h-full object-cover" src="https://www.ishtaorganics.in/cdn/shop/files/Fireflycoconutoilin2bottlesonein500mlanotherin1lwithacoconutinsideandwhiebackgrou.jpg?v=1712694482" alt="Product Image">
-                </div>
+                    <img
+                    class="w-full h-full object-cover"
+                    [src]="productDetails?.imageUrl || 'assets/images/default-image.jpg'"
+                    alt="Product Image"
+                  />
+                                  </div>
                 <form (ngSubmit)="placeOrder()" class="flex flex-col items-start mb-4">
                     <label for="quantity" class="text-gray-700 dark:text-gray-300 text-sm mb-2 font-bold">Quantity</label>
                     <input 
