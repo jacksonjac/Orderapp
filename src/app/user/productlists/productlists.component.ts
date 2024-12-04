@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Firestore, collection, getDocs, updateDoc, doc, CollectionReference } from '@angular/fire/firestore';
+import { Firestore, collection, getDocs, query, where, CollectionReference } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-productlists',
@@ -9,27 +10,60 @@ import { Router } from '@angular/router';
 })
 export class ProductlistsComponent {
 
-  orders: any[] = []; 
+  orders: any[] = [];
+  categories: string[] = []; // Stores unique categories
+  defaultImage =
+    'https://www.ishtaorganics.in/cdn/shop/files/Fireflycoconutoilin2bottlesonein500mlanotherin1lwithacoconutinsideandwhiebackgrou.jpg?v=1712694482';
+
   constructor(private router: Router, private firestore: Firestore) {}
 
   ngOnInit() {
-   
-    this.fetchOrderItems()
+    this.fetchOrderItems();
+    this.fetchCategories();
   }
 
-  async fetchOrderItems() {
+  async fetchOrderItems(category: string = '') {
     try {
-      const orderItemsCollection: CollectionReference = collection(this.firestore, 'Products');
-      const snapshot = await getDocs(orderItemsCollection);
+      const orderItemsCollection: CollectionReference = collection(
+        this.firestore,
+        'Products'
+      );
+      const filters = category
+        ? query(orderItemsCollection, where('category', '==', category))
+        : orderItemsCollection;
+      const snapshot = await getDocs(filters);
 
-      this.orders = snapshot.docs.map(doc => ({
+      this.orders = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
     } catch (error) {
-      console.error("Error fetching documents: ", error);
+      console.error('Error fetching documents: ', error);
     }
   }
+
+  async fetchCategories() {
+    try {
+      const orderItemsCollection: CollectionReference = collection(
+        this.firestore,
+        'Products'
+      );
+      const snapshot = await getDocs(orderItemsCollection);
+
+      // Extract unique categories (brands)
+      this.categories = [
+        ...new Set(snapshot.docs.map((doc) => doc.data()['category'])),
+      ].filter((category) => !!category);
+    } catch (error) {
+      console.error('Error fetching categories: ', error);
+    }
+  }
+
+  onCategoryChange(event: Event) {
+    const selectedCategory = (event.target as HTMLSelectElement).value;
+    this.fetchOrderItems(selectedCategory);
+  }
+
   navigateToDetails(productId: string) {
     this.router.navigate(['/user/productDetails', productId]);
   }
