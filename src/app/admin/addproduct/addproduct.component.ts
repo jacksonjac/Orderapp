@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
-import { v2 as cloudinary } from 'cloudinary';
+
 
 @Component({
   selector: 'app-addproduct',
