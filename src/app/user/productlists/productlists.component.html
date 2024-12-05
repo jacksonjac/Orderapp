@@ -2,7 +2,7 @@
   <!-- Category Dropdown at the Top -->
   <div class="mb-4 w-full flex justify-center">
     <select
-      class="px-6 py-3 rounded-lg border border-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-lg bg-blue-900 shadow-md hover:bg-gray-100 transition-all w-1/2"
+      class="px-6 py-3 rounded-lg border border-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-lg bg-blue-500 shadow-md hover:bg-gray-100 transition-all w-1/2"
       (change)="onCategoryChange($event)"
     >
       <option value="" class="text-gray-700"> All Categories</option>
@@ -16,7 +16,7 @@
   <div class="flex flex-wrap items-center justify-center overflow-auto" style="max-height: calc(80vh - 4rem);">
     <div
       *ngFor="let order of orders"
-      class="flex-shrink-0 m-6 relative overflow-hidden bg-blue-900 rounded-lg shadow-lg group"
+      class="flex-shrink-0 m-6 relative overflow-hidden bg-blue-600 rounded-lg shadow-lg group"
       style="width: 250px; height: 350px;"
       (click)="navigateToDetails(order.id)"
     >
@@ -61,11 +61,10 @@
         <span class="block opacity-75 -mb-1">{{ order.brand || 'Category' }}</span>
         <div class="flex justify-between">
           <span class="block font-semibold text-xl">{{ order.productName || 'Product Name' }}</span>
-          <span
-            class="bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center"
-          >
-            ${{ order.price || '0.00' }}
+          <span class="bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
+            ₹{{ order.price || '0.00' }}
           </span>
+          
         </div>
       </div>
     </div>

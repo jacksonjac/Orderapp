@@ -29,7 +29,7 @@ export class ProductlistsComponent {
         'Products'
       );
       const filters = category
-        ? query(orderItemsCollection, where('category', '==', category))
+        ? query(orderItemsCollection, where('categories', '==', category))
         : orderItemsCollection;
       const snapshot = await getDocs(filters);
 
@@ -46,7 +46,7 @@ export class ProductlistsComponent {
     try {
       const orderItemsCollection: CollectionReference = collection(
         this.firestore,
-        'Products'
+        'categories'
       );
       const snapshot = await getDocs(orderItemsCollection);
 
