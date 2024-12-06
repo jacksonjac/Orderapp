@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-   isMenuOpen = false;
+  isMenuOpen = false;
   Islogged = false;
 
   constructor(private router: Router) {}
@@ -31,9 +31,7 @@ export class NavbarComponent implements OnInit {
     this.Islogged = !!token; // Convert token existence to boolean
   }
 
-  toggleMenu(event: MouseEvent) {
-    // Prevent event propagation to stop the document click listener from closing the menu
-    event.stopPropagation();
+  toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
@@ -42,16 +40,5 @@ export class NavbarComponent implements OnInit {
     this.Islogged = false; // Update login status
     this.isMenuOpen = false; // Close the menu on logout
     this.router.navigate(['']); // Redirect to the login or home page
-  }
-
-  // Close the menu when clicking or touching anywhere on the screen
-  @HostListener('document:click', ['$event'])
-  @HostListener('document:touchstart', ['$event'])
-  onOutsideClick(event: Event) {
-    const target = event.target as HTMLElement;
-    // Close the menu if the click is outside the menu and toggle button
-    if (!target.closest('.menu-container') && !target.closest('.toggle-button')) {
-      this.isMenuOpen = false;
-    }
   }
 }
