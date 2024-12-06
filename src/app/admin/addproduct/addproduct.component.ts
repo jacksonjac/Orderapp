@@ -101,7 +101,7 @@ export class AddproductComponent implements OnInit{
   
       try {
         const docRef = await addDoc(collection(this.firestore, 'Products'), productData);
-        this.router.navigateByUrl('user/AllOrders');
+        this.router.navigateByUrl('admin/productlist');
       } catch (error) {
         console.error('Error adding document:', error);
       }

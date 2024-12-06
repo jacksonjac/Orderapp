@@ -38,7 +38,7 @@ export class ProductstatusComponent {
         return;
       }
 
-      const orderDocRef = doc(this.firestore, 'Orderitems', orderId);
+      const orderDocRef = doc(this.firestore, 'Orders', orderId);
       const orderDoc = await getDoc(orderDocRef);
 
       if (orderDoc.exists()) {

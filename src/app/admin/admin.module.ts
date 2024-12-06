@@ -15,6 +15,7 @@ import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.componen
 import { NavbarComponent } from '../admin/shared/navbar/navbar.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
+import { ProductlistComponent } from './productlist/productlist.component';
 
 
 
@@ -34,7 +35,8 @@ import { AddproductComponent } from './addproduct/addproduct.component';
          ShippedOrdersComponent,
          NavbarComponent,
          LoginpageComponent,
-         AddproductComponent
+         AddproductComponent,
+         ProductlistComponent
          
   ],
   imports: [

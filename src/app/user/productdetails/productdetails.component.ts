@@ -44,19 +44,20 @@ export class ProductdetailsComponent implements OnInit {
       console.error('Invalid quantity entered');
       return;
     }
-
+  
     try {
       const order = {
         productId: this.productId,
-        quantity: this.quantity,
-        orderDate: new Date(),
         productName: this.productDetails.productName,
-        price: this.productDetails.price
+        price: this.productDetails.price,
+        quantity: this.quantity,
+        imageUrl: this.productDetails.imageUrl, // Add the image URL here
+        orderDate: new Date()
       };
-
+  
       const orderRef = collection(this.firestore, 'Orders');
       await addDoc(orderRef, order);
-
+  
       console.log('Order placed successfully:', order);
       this.router.navigate(['/user/sucesspage']); // Redirect to success page
     } catch (error) {

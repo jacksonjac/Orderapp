@@ -11,6 +11,7 @@ import { ConfirmedOrdersComponent } from './confirmed-orders/confirmed-orders.co
 import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
+import { ProductlistComponent } from './productlist/productlist.component';
 
 
 
@@ -19,7 +20,7 @@ const routes: Routes = [
     children: [
      {path:'',component:LoginpageComponent},
      {path:'addproduct',component:AddproductComponent},
-     
+     {path:'productlist',component:ProductlistComponent},
      {path:'productStatus/:id',component:OrderstatusComponent},
      {path:'AllOrders',component:AllOrdersComponent},
      {path:'ConfirmedOrders',component:ConfirmedOrdersComponent},

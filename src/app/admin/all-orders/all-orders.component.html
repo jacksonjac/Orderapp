@@ -1,5 +1,5 @@
-<div class="flex items-center justify-center mt-8">
-    <div class="p-4 rounded-lg shadow-2xl w-full max-w-sm sm:max-w-md bg-violet-950 text-white">
+<div class="flex items-center justify-center mt-16">
+    <div class="p-4 rounded-lg shadow-2xl w-full max-w-sm sm:max-w-md bg-blue-500 text-white">
       <h2 class="text-lg font-semibold text-center mb-4 text-gray-100"> ALL REQUEST ORDERS</h2>
   
       <!-- Check if there are no orders; display a "No Orders Found" message -->
@@ -8,16 +8,16 @@
       </div>
   
       <!-- Display orders if available -->
-      <div *ngIf="orders.length > 0" class="h-full overflow-y-auto">
+      <div *ngIf="orders.length > 0" class="h-full overflow-y-auto items-center">
         <div 
           *ngFor="let order of orders" 
           (click)="viewStatus(order.id)" 
-          class="p-2 mb-3 rounded-lg shadow-lg bg-violet-900 flex items-center justify-between cursor-pointer"
+          class="p-2 mb-3 rounded-lg shadow-lg bg-blue-600 flex items-center justify-between cursor-pointer"
         >
           <!-- Order details on the left -->
           <div>
             <h3 class="text-md font-semibold">{{ order.productName | uppercase }}</h3>
-            <p class="text-[0.55rem]">Brand: {{ order.brand }}</p>
+            
             <p class="text-[0.55rem]">Quantity: {{ order.quantity }}</p>
             <p class="text-[0.55rem]">Price: {{ order.price }} rs per item</p>
           </div>
