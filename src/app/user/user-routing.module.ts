@@ -13,12 +13,13 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { ProductlistsComponent } from './productlists/productlists.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { SucesspageComponent } from './sucesspage/sucesspage.component';
+import { UserGuard } from '../guards/user.guard';
 
 
 const routes: Routes = [
   { path: '', component: UserComponent,
     children:[
-        {path:'',component:LoginpageComponent},
+        {path:'',component:LoginpageComponent,canActivate:[UserGuard]},
         {path:'Productlist',component:ProductlistsComponent},
         {path: 'productDetails/:id', component: ProductdetailsComponent },
         {path:'sucesspage',component:SucesspageComponent},
