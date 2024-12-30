@@ -25,7 +25,7 @@ export class ProductdetailsComponent implements OnInit {
 
   async fetchProductDetails() {
     try {
-      const productRef = doc(this.firestore, 'Products', this.productId);
+      const productRef = doc(this.firestore, 'productsforwayanad', this.productId);
       const productSnap = await getDoc(productRef);
 
       if (productSnap.exists()) {

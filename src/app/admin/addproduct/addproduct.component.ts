@@ -58,7 +58,7 @@ export class AddproductComponent implements OnInit{
     try {
       const orderItemsCollection: CollectionReference = collection(
         this.firestore,
-        'categories'
+        'categoryforwayanad'
       );
       const snapshot = await getDocs(orderItemsCollection);
 
@@ -100,7 +100,7 @@ export class AddproductComponent implements OnInit{
       };
   
       try {
-        const docRef = await addDoc(collection(this.firestore, 'Products'), productData);
+        const docRef = await addDoc(collection(this.firestore, 'productsforwayanad'), productData);
         this.router.navigateByUrl('admin/productlist');
       } catch (error) {
         console.error('Error adding document:', error);

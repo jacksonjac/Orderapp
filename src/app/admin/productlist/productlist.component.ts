@@ -19,7 +19,7 @@ export class ProductlistComponent {
 
   async fetchOrderItems() {
     try {
-      const orderItemsCollection: CollectionReference = collection(this.firestore, 'Products');
+      const orderItemsCollection: CollectionReference = collection(this.firestore, 'productsforwayanad');
       const snapshot = await getDocs(orderItemsCollection);
 
       this.orders = snapshot.docs.map(doc => ({

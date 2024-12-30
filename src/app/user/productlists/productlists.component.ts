@@ -24,9 +24,10 @@ export class ProductlistsComponent {
 
   async fetchOrderItems(category: string = '') {
     try {
+      console.log(category,"category is ")
       const orderItemsCollection: CollectionReference = collection(
         this.firestore,
-        'Products'
+        'productsforwayanad'
       );
       const filters = category
         ? query(orderItemsCollection, where('categories', '==', category))
@@ -46,7 +47,7 @@ export class ProductlistsComponent {
     try {
       const orderItemsCollection: CollectionReference = collection(
         this.firestore,
-        'categories'
+        'categoryforwayanad'
       );
       const snapshot = await getDocs(orderItemsCollection);
 
