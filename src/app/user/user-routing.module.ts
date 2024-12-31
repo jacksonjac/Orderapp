@@ -19,7 +19,7 @@ import { UserGuard } from '../guards/user.guard';
 const routes: Routes = [
   { path: '', component: UserComponent,
     children:[
-        {path:'',component:LoginpageComponent,canActivate:[UserGuard]},
+        {path:'',component:ProductlistsComponent},
         {path:'Productlist',component:ProductlistsComponent},
         {path: 'productDetails/:id', component: ProductdetailsComponent },
         {path:'sucesspage',component:SucesspageComponent},
