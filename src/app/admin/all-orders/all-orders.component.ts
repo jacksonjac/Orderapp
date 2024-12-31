@@ -20,13 +20,14 @@ export class AllOrdersComponent implements OnInit {
   // Fetch orders from Firestore
   async fetchOrderItems() {
     try {
-      const orderItemsCollection: CollectionReference = collection(this.firestore, 'Orders');
+      const orderItemsCollection: CollectionReference = collection(this.firestore, 'orderAddresses');
       const snapshot = await getDocs(orderItemsCollection);
 
       this.orders = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
       }));
+      console.log(this.orders,"oreder data")
     } catch (error) {
       console.error("Error fetching documents: ", error);
     }

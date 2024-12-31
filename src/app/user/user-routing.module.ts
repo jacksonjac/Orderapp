@@ -14,6 +14,7 @@ import { ProductlistsComponent } from './productlists/productlists.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { SucesspageComponent } from './sucesspage/sucesspage.component';
 import { UserGuard } from '../guards/user.guard';
+import { AddOrderdetailComponent } from './add-orderdetail/add-orderdetail.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
         {path:'',component:ProductlistsComponent},
         {path:'Productlist',component:ProductlistsComponent},
         {path: 'productDetails/:id', component: ProductdetailsComponent },
+        {path:'adddetails',component:AddOrderdetailComponent},
         {path:'sucesspage',component:SucesspageComponent},
         {path:'AllOrders',component:AllordersComponent},
         {path:'productStatus/:id',component:ProductstatusComponent},

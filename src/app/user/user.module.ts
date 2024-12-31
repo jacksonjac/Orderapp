@@ -16,6 +16,7 @@ import { LoginpageComponent } from './loginpage/loginpage.component';
 import { ProductlistsComponent } from './productlists/productlists.component';
 import { ProductdetailsComponent } from './productdetails/productdetails.component';
 import { SucesspageComponent } from './sucesspage/sucesspage.component';
+import { AddOrderdetailComponent } from './add-orderdetail/add-orderdetail.component';
 
 
 
@@ -33,6 +34,7 @@ import { SucesspageComponent } from './sucesspage/sucesspage.component';
         ProductlistsComponent,
         ProductdetailsComponent,
         SucesspageComponent,
+        AddOrderdetailComponent,
     
  
   ],

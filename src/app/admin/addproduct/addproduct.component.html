@@ -1,39 +1,64 @@
-<div class="flex items-center justify-center">
-  <div class="p-4 rounded-lg mt-14 animation w-full max-w-sm sm:max-w-md shadow-2xl h-[585px] bg-amber-800">
+<div class="flex items-center justify-center min-h-screen bg-amber-800">
+  <div class="p-6 mt-14 rounded-lg animation w-full max-w-sm sm:max-w-md lg:max-w-3xl shadow-2xl bg-amber-800">
     <!-- Styled Heading -->
-    <h1 class="text-center text-2xl font-bold text-gray-100 mb-4 tracking-wide">
+    <h1 class="text-center text-2xl lg:text-4xl  text-gray-100 mb-6 tracking-wide">
       Add New Product
     </h1>
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="space-y-2">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="space-y-6">
       <!-- Product Name -->
-      <div>
-        <label for="productName" class="block text-gray-200 font-semibold mb-1">
-          Product Name <span class="text-red-500">*</span>
-        </label>
-        <input formControlName="productName" type="text" id="productName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Product Name">
-        <div *ngIf="isInvalid('productName')" class="text-red-500 text-sm">Product name is required</div>
+      <div class="lg:flex lg:space-x-6">
+        <div class="lg:flex-1">
+          <label for="productName" class="block text-gray-200 font-semibold mb-1">
+            Product Name <span class="text-red-500">*</span>
+          </label>
+          <input 
+            formControlName="productName" 
+            type="text" 
+            id="productName" 
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+            placeholder="Enter Product Name">
+          <div *ngIf="isInvalid('productName')" class="text-red-500 text-sm">Product name is required</div>
+        </div>
+
+        <!-- Brand -->
+        <div class="lg:flex-1">
+          <label for="brand" class="block text-gray-200 font-semibold mb-1">
+            Brand <span class="text-gray-300">(optional)</span>
+          </label>
+          <input 
+            formControlName="brand" 
+            type="text" 
+            id="brand" 
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+            placeholder="Enter Brand Name">
+        </div>
       </div>
 
-      <!-- Brand -->
-      <div>
-        <label for="brand" class="block text-gray-200 font-semibold mb-1">
-          Brand <span class="text-gray-300">(optional)</span>
-        </label>
-        <input formControlName="brand" type="text" id="brand" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Brand Name">
-      </div>
+      <!-- Price -->
       <div>
         <label for="price" class="block text-gray-200 font-semibold mb-1">
           Price <span class="text-red-500">*</span>
         </label>
-        <input formControlName="price" type="number" id="price" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Product Price">
+        <input 
+          formControlName="price" 
+          type="number" 
+          id="price" 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+          placeholder="Enter Product Price">
         <div *ngIf="isInvalid('price')" class="text-red-500 text-sm">Price is required</div>
       </div>
+
       <!-- Description -->
       <div>
         <label for="description" class="block text-gray-200 font-semibold mb-1">
           Description <span class="text-red-500">*</span>
         </label>
-        <textarea formControlName="description" id="description" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter Product Description"></textarea>
+        <textarea 
+          formControlName="description" 
+          id="description" 
+          rows="3" 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+          placeholder="Enter Product Description"></textarea>
         <div *ngIf="isInvalid('description')" class="text-red-500 text-sm">Description is required</div>
       </div>
 
@@ -42,26 +67,33 @@
         <label for="categories" class="block text-gray-200 font-semibold mb-1">
           Categories <span class="text-red-500">*</span>
         </label>
-        <select formControlName="categories" id="categories" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <select 
+          formControlName="categories" 
+          id="categories" 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
           <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
         </select>
         <div *ngIf="isInvalid('categories')" class="text-red-500 text-sm">Please select a category</div>
       </div>
-
-    
 
       <!-- Image Upload -->
       <div>
         <label for="image" class="block text-gray-200 font-semibold mb-1">
           Product Image <span class="text-red-500">*</span>
         </label>
-        <input type="file" id="image" (change)="onFileSelected($event)" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input 
+          type="file" 
+          id="image" 
+          (change)="onFileSelected($event)" 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
         <div *ngIf="imageError" class="text-red-500 text-sm">{{ imageError }}</div>
       </div>
 
       <!-- Submit Button -->
       <div>
-        <button type="submit" class="w-full bg-blue-900 text-white py-2 rounded-lg w-full hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <button 
+          type="submit" 
+          class="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
           Submit
         </button>
       </div>

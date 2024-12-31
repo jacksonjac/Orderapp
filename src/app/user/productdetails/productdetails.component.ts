@@ -45,23 +45,15 @@ export class ProductdetailsComponent implements OnInit {
       return;
     }
   
-    try {
-      const order = {
-        productId: this.productId,
-        productName: this.productDetails.productName,
-        price: this.productDetails.price,
-        quantity: this.quantity,
-        imageUrl: this.productDetails.imageUrl, // Add the image URL here
-        orderDate: new Date()
-      };
+    const orderData = {
+      productId: this.productId,
+      productName: this.productDetails.productName,
+      price: this.productDetails.price,
+      quantity: this.quantity,
+      imageUrl: this.productDetails.imageUrl, // Add the image URL here
+    };
   
-      const orderRef = collection(this.firestore, 'Orders');
-      await addDoc(orderRef, order);
-  
-      console.log('Order placed successfully:', order);
-      this.router.navigate(['/user/sucesspage']); // Redirect to success page
-    } catch (error) {
-      console.error('Error placing order: ', error);
-    }
+    // Navigate to the Add Address Details page with the order data
+    this.router.navigate(['/user/adddetails'], { state: { orderData } });
   }
 }
