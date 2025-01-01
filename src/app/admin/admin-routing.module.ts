@@ -12,6 +12,7 @@ import { ShippedOrdersComponent } from './shipped-orders/shipped-orders.componen
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { ProductlistComponent } from './productlist/productlist.component';
+import { ProducteditComponent } from './productedit/productedit.component';
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
      {path:'',component:LoginpageComponent},
      {path:'addproduct',component:AddproductComponent},
      {path:'productlist',component:ProductlistComponent},
+     { path: 'edit-product/:id', component: ProducteditComponent },
      {path:'productStatus/:id',component:OrderstatusComponent},
      {path:'AllOrders',component:AllOrdersComponent},
      {path:'ConfirmedOrders',component:ConfirmedOrdersComponent},

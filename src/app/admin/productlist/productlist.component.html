@@ -26,20 +26,21 @@
           <h3 class="text-md font-semibold">{{ order.productName | uppercase }}</h3>
           <p class="text-sm">Brand: {{ order.brand }}</p>
           <p class="text-sm">Price: {{ order.price }}rs per item</p>
+          <p class="text-sm">Weight: {{ order.weight }}</p> <!-- Added weight display -->
         </div>
 
         <!-- View Status Button -->
         <div class="flex justify-center space-x-2 mt-2 md:mt-0">
           <!-- Edit Button -->
           <button 
-            (click)="editOrder()" 
+            (click)="editOrder(order.id)" 
             class="px-2 py-1 bg-green-500 rounded text-xs font-semibold hover:bg-green-600">
             Edit
           </button>
 
           <!-- Delete Button -->
           <button 
-            (click)="deleteOrder()" 
+            (click)="deleteOrder(order.id)" 
             class="px-2 py-1 bg-red-500 rounded text-xs font-semibold hover:bg-red-600">
             Delete
           </button>

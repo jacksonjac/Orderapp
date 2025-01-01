@@ -16,6 +16,7 @@ import { NavbarComponent } from '../admin/shared/navbar/navbar.component';
 import { LoginpageComponent } from './loginpage/loginpage.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { ProductlistComponent } from './productlist/productlist.component';
+import { ProducteditComponent } from './productedit/productedit.component';
 
 
 
@@ -36,7 +37,8 @@ import { ProductlistComponent } from './productlist/productlist.component';
          NavbarComponent,
          LoginpageComponent,
          AddproductComponent,
-         ProductlistComponent
+         ProductlistComponent,
+         ProducteditComponent
          
   ],
   imports: [

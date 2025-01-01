@@ -27,6 +27,7 @@ export class AddproductComponent implements OnInit{
       price: ['', [Validators.required, Validators.min(0)]],
       description: ['', Validators.required],
       categories: ['', Validators.required],
+      weight: ['', [Validators.required]]
     });
   }
   ngOnInit() {

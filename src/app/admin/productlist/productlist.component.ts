@@ -1,6 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import { Firestore, collection, getDocs, updateDoc, doc, CollectionReference } from '@angular/fire/firestore';
+import { Firestore, collection, getDocs, updateDoc, doc, CollectionReference, deleteDoc } from '@angular/fire/firestore';
 
 
 @Component({
@@ -34,8 +34,23 @@ export class ProductlistComponent {
     // Navigate to the order detail page with the ID
     this.router.navigate(['user/productStatus', orderId]);
   }
-  deleteOrder(){}
-  editOrder(){}
+  async deleteOrder(orderId: string) {
+    try {
+      const productDocRef = doc(this.firestore, 'productsforwayanad', orderId);
+      await deleteDoc(productDocRef);
+      
+      // Remove the deleted product from the local array
+      this.orders = this.orders.filter(order => order.id !== orderId);
+
+      console.log('Product deleted successfully!');
+    } catch (error) {
+      console.error('Error deleting product: ', error);
+    }
+  }
+  editOrder(orderId: string) {
+    this.router.navigate(['admin/edit-product', orderId]);
+  }
+  
 }
 
 

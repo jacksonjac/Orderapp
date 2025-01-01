@@ -1,7 +1,7 @@
 <div class="flex items-center justify-center min-h-screen bg-amber-800">
   <div class="p-6 mt-14 rounded-lg animation w-full max-w-sm sm:max-w-md lg:max-w-3xl shadow-2xl bg-amber-800">
     <!-- Styled Heading -->
-    <h1 class="text-center text-2xl lg:text-4xl  text-gray-100 mb-6 tracking-wide">
+    <h1 class="text-center text-2xl lg:text-4xl text-gray-100 mb-6 tracking-wide">
       Add New Product
     </h1>
     <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" class="space-y-6">
@@ -46,6 +46,20 @@
           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
           placeholder="Enter Product Price">
         <div *ngIf="isInvalid('price')" class="text-red-500 text-sm">Price is required</div>
+      </div>
+
+      <!-- Weight -->
+      <div>
+        <label for="weight" class="block text-gray-200 font-semibold mb-1">
+          Weight <span class="text-red-500">*</span>
+        </label>
+        <input 
+          formControlName="weight" 
+          type="text" 
+          id="weight" 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" 
+          placeholder="Enter Product Weight">
+        <div *ngIf="isInvalid('weight')" class="text-red-500 text-sm">Weight is required</div>
       </div>
 
       <!-- Description -->
