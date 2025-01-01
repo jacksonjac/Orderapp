@@ -26,6 +26,11 @@
                         <span class="text-gray-600 dark:text-gray-300">In Stock</span>
                     </div>
                 </div>
+                <!-- Display product weight -->
+                <div class="mb-4">
+                    <span class="font-bold text-gray-700 dark:text-gray-300">Weight:</span>
+                    <span class="text-gray-600 dark:text-gray-300"> {{ productDetails.weight || '0.00' }}  </span>
+                </div>
                 <!-- Quantity input and order button -->
                 <form (ngSubmit)="placeOrder()" class="flex flex-col items-start mt-4">
                     <label
