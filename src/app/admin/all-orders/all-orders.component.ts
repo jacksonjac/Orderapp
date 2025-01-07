@@ -22,16 +22,33 @@ export class AllOrdersComponent implements OnInit {
     try {
       const orderItemsCollection: CollectionReference = collection(this.firestore, 'orderAddresses');
       const snapshot = await getDocs(orderItemsCollection);
-
+  
       this.orders = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data(),
       }));
-      console.log(this.orders,"oreder data")
+  
+      this.processOrders(); // Format dates after fetching
     } catch (error) {
       console.error("Error fetching documents: ", error);
     }
   }
+  
+
+  processOrders() {
+    this.orders = this.orders.map(order => {
+      const date = new Date(order.orderDate.seconds * 1000);
+      const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${
+        (date.getMonth() + 1).toString().padStart(2, '0')
+      }/${date.getFullYear()}`;
+      return {
+        ...order,
+        formattedDate,
+      };
+    });
+  }
+  
+  
 
   // async fetchOrderPendingItems() {
   //   try {

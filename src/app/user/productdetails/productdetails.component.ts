@@ -51,7 +51,9 @@ export class ProductdetailsComponent implements OnInit {
       price: this.productDetails.price,
       quantity: this.quantity,
       imageUrl: this.productDetails.imageUrl, // Add the image URL here
+      weight:this.productDetails.weight
     };
+    console.log("orderdata pass",orderData)
   
     // Navigate to the Add Address Details page with the order data
     this.router.navigate(['/user/adddetails'], { state: { orderData } });

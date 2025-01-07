@@ -13,6 +13,7 @@
         <thead>
           <tr>
             <th class="px-4 py-2 text-sm text-gray-300">Product Name</th>
+            <th class="px-4 py-2 text-sm text-gray-300">Weight</th>
             <th class="px-4 py-2 text-sm text-gray-300">Quantity</th>
             <th class="px-4 py-2 text-sm text-gray-300">Order Date</th>
             <th class="px-4 py-2 text-sm text-gray-300">Phone Number</th>
@@ -27,8 +28,12 @@
         <tbody>
           <tr *ngFor="let order of orders">
             <td class="px-4 py-2 text-sm text-gray-100">{{ order.productName | uppercase }}</td>
+            <td class="px-4 py-2 text-sm text-gray-100">{{ order.weight }}</td>
             <td class="px-4 py-2 text-sm text-gray-100">{{ order.quantity }}</td>
-            <td class="px-4 py-2 text-sm text-gray-100">{{ order.orderDate.seconds | date: 'shortDate' }}</td>
+            <td class="px-4 py-2 text-sm text-gray-100">
+              {{ order.formattedDate }}
+            </td>
+            
             <td class="px-4 py-2 text-sm text-gray-100">{{ order.phone }}</td>
             <td class="px-4 py-2 text-sm text-gray-100 whitespace-nowrap">
               {{ order.address }}

@@ -5,7 +5,7 @@
       class="px-6 py-3 rounded-lg border border-white focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent text-lg bg-amber-800 shadow-md hover:bg-gray-100 transition-all w-1/2"
       (change)="onCategoryChange($event)"
     >
-      <option value="" class="text-gray-700"> All Categories</option>
+      <option value="" class="text-gray-700">All Categories</option>
       <option *ngFor="let category of categories" [value]="category" class="text-gray-800">
         {{ category }}
       </option>
@@ -17,7 +17,7 @@
     <div
       *ngFor="let order of orders"
       class="flex-shrink-0 m-6 relative overflow-hidden bg-amber-800 rounded-lg shadow-lg group"
-      style="width: 250px; height: 350px;"
+      style="width: 250px; height: 400px;"
       (click)="navigateToDetails(order.id)"
     >
       <svg
@@ -44,9 +44,7 @@
           fill="white"
         />
       </svg>
-      <div
-        class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform"
-      >
+      <div class="relative pt-10 px-10 flex items-center justify-center group-hover:scale-110 transition-transform">
         <div
           class="block absolute w-48 h-48 bottom-0 left-0 -mb-24 ml-3"
           style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"
@@ -58,16 +56,21 @@
         />
       </div>
       <div class="relative text-white px-6 pb-6 mt-6">
-        <span class="block opacity-75 -mb-1">{{ order.brand || 'Category' }}</span>
-        <div class="flex justify-between">
-          <span class="block font-semibold text-xl">{{ order.productName || 'Product Name' }}</span>
-          <span class="bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
+        <span class="block opacity-75 text-sm mb-1">{{ order.brand || 'Category' }}</span>
+        <div
+          class="text-base font-semibold mb-2"
+          style="min-height: 3rem; line-height: 1.5rem;"
+        >
+          {{ order.productName || 'Product Name' }}
+        </div>
+        <div class="flex justify-between items-center">
+          <span class="block bg-white rounded-full text-orange-500 text-xs font-bold px-3 py-2 leading-none flex items-center">
             ₹{{ order.price || '0.00' }}/-
           </span>
         </div>
         <!-- Display Weight -->
         <div class="mt-2">
-          <span class="block text-sm">Weight: {{ order.weight || '0.00' }} </span>
+          <span class="block text-xs">Weight: {{ order.weight || '0.00' }} </span>
         </div>
       </div>
     </div>
