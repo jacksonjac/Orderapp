@@ -58,4 +58,5 @@ export class ProductdetailsComponent implements OnInit {
     // Navigate to the Add Address Details page with the order data
     this.router.navigate(['/user/adddetails'], { state: { orderData } });
   }
+  
 }

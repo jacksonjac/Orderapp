@@ -32,30 +32,37 @@
                     <span class="text-gray-600 dark:text-gray-300"> {{ productDetails.weight || '0.00' }}  </span>
                 </div>
                 <!-- Quantity input and order button -->
-                <form (ngSubmit)="placeOrder()" class="flex flex-col items-start mt-4">
+                <form (ngSubmit)="placeOrder()" class="flex flex-col items-start mt-4" #orderForm="ngForm">
                     <label
-                        for="quantity"
-                        class="text-gray-700 dark:text-gray-300 text-sm mb-2 font-bold"
+                      for="quantity"
+                      class="text-gray-700 dark:text-gray-300 text-sm mb-2 font-bold flex items-center"
                     >
-                        Quantity
+                      Quantity
+                      <span class="text-red-500 ml-1">*</span>
                     </label>
                     <input
-                        id="quantity"
-                        [(ngModel)]="quantity"
-                        name="quantity"
-                        type="number"
-                        min="1"
-                        required
-                        class="w-full py-2 px-3 border border-gray-300 rounded-lg dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-500"
-                        placeholder="Enter quantity"
+                      id="quantity"
+                      [(ngModel)]="quantity"
+                      name="quantity"
+                      type="number"
+                      min="1"
+                      required
+                      class="w-full py-2 px-3 border border-gray-300 rounded-lg dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-400 dark:focus:ring-gray-500"
+                      placeholder="Enter quantity"
+                      #quantityInput="ngModel"
                     />
+                    <!-- Error Message -->
+                    <p *ngIf="quantityInput.invalid && quantityInput.touched" class="text-red-500 text-sm mt-1">
+                      Quantity is required and must be at least 1.
+                    </p>
                     <button
-                        type="submit"
-                        class="w-full mt-4 bg-gray-200 dark:bg-green-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600"
+                      type="submit"
+                      class="w-full mt-4 bg-gray-200 dark:bg-green-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600"
+                      [disabled]="orderForm.invalid"
                     >
-                        Order Item
+                      Order Item
                     </button>
-                </form>
+                  </form>
             </div>
         </div>
     </div>
