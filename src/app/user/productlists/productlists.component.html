@@ -13,10 +13,10 @@
   </div>
 
   <!-- Orders Grid -->
-  <div class="flex flex-wrap items-center justify-center overflow-auto" style="max-height: calc(80vh - 4rem);">
+  <div class="flex flex-wrap items-center justify-center overflow-auto " style="max-height: calc(80vh - 4rem);">
     <div
       *ngFor="let order of orders"
-      class="flex-shrink-0 m-6 relative overflow-hidden bg-amber-800 rounded-lg shadow-lg group"
+      class="flex-shrink-0 m-6 relative overflow-hidden bg-amber-800 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl  group"
       style="width: 250px; height: 400px;"
       (click)="navigateToDetails(order.id)"
     >
@@ -50,7 +50,7 @@
           style="background: radial-gradient(black, transparent 60%); transform: rotate3d(0, 0, 1, 20deg) scale3d(1, 0.6, 1); opacity: 0.2;"
         ></div>
         <img
-          class="relative w-40"
+          class="relative w-40 rounded-xl"
           [src]="order.imageUrl || 'https://www.ishtaorganics.in/cdn/shop/files/Fireflycoconutoilin2bottlesonein500mlanotherin1lwithacoconutinsideandwhiebackgrou.jpg?v=1712694482'"
           [alt]="order.name || 'Product Image'"
         />
