@@ -15,9 +15,9 @@ export class ProductlistsComponent {
   defaultImage =
     'https://www.ishtaorganics.in/cdn/shop/files/Fireflycoconutoilin2bottlesonein500mlanotherin1lwithacoconutinsideandwhiebackgrou.jpg?v=1712694482';
     carouselImages: string[] = [
-      'https://img.freepik.com/free-vector/abstract-sales-landing-page-with-image_23-2148331036.jpg?ga=GA1.1.1510804911.1718183833&semt=ais_hybrid',
-      'https://img.freepik.com/free-vector/cup-tea-ad_52683-35124.jpg?ga=GA1.1.1510804911.1718183833&semt=ais_hybrid',
-      'https://img.freepik.com/premium-vector/black-tea-cup-vector-realistic-tea-bag-product-packaging-mock-up-detailed-3d-illustrations_1268-18075.jpg?ga=GA1.1.1510804911.1718183833&semt=ais_hybrid'
+      '/assets/images/feed.jpeg',
+      '/assets/images/lime.jpeg',
+      '/assets/images/paddi.jpeg'
     ];
     currentIndex: number = 0;
     interval: any;
